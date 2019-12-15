@@ -78,13 +78,15 @@ class ProfileController extends Controller
     {       
         $this->validate($request, [
             'name' => 'required',
-            'abbreviation' => 'nullable'
+            'abbreviation' => 'nullable',
+            'description' => 'nullable'
         ]);
         
         
         $organization = User::find(auth()->user()->id);
         $organization->name = $request->input('name');
         $organization->abbreviation = $request->input('abbreviation');
+        $organization->description = $request->input('description');
         $organization->save();
 
         return redirect('/dashboard')->with('success', 'Successfully updated profile!');

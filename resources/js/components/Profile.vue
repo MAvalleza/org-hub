@@ -8,6 +8,10 @@
       label(for="email") Abbreviation
       input(type="text" name="abbreviation" id="abbreviation" v-model="fields.abbreviation").form-control
       div(v-if="errors && errors.abbreviation").text-danger {{ errors.abbreviation[0] }}
+    div.form-group
+      label(for="description") Description
+      textarea(rows="3" v-model="fields.description").form-control
+      div(v-if="errors && errors.description").text-danger {{ errors.description[0] }}
     button(type="submit").btn.btn-primary Update
 </template>
 
@@ -33,8 +37,7 @@ export default {
 
       try {
         await axios.post('/profile/update' + this.fields.id, {
-          name: this.fields.name,
-          abbreviation: this.fields.abbreviation,
+          ...this.fields,
           _method: 'PUT'
         });
         alert('Profile updated');
