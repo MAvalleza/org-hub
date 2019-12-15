@@ -11,6 +11,10 @@ class PagesController extends Controller
         // return view('pages.index', compact('title'));
         return view('pages.index')->with('title', $title);
     }
+
+    public function profile(){
+        return view('pages.profile');
+    }
     // public function about(){
     //     $title = 'About Us';
 

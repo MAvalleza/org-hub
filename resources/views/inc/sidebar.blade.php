@@ -8,7 +8,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sidebar-item" href="/dashboard">
+        <a class="nav-link sidebar-item" href="/profile/{{auth()->user()->id}}/edit">
           <span></span>
           My Profile
         </a>
