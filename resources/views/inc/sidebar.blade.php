@@ -1,14 +1,14 @@
-<nav class="col-md-2 d-none d-md-block bg-dark navbar-dark sidebar">
+<nav class="col-md-2 d-none d-md-block bg-dark sidebar">
   <div class="sidebar-sticky">
-    <ul class="nav flex-column">
+    <ul class="nav flex-column pt-3">
       <li class="nav-item">
-        <a class="nav-link active">
+        <a class="nav-link sidebar-item" href="/dashboard">
           <span></span>
           Dashboard <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link sidebar-item" href="#">
           <span data-feather="file"></span>
           Orders
         </a>
@@ -21,31 +21,5 @@
         <span data-feather="plus-circle"></span>
       </a>
     </h6>
-    <ul class="nav flex-column mb-2">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Current month
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Last quarter
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Social engagement
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="file-text"></span>
-          Year-end sale
-        </a>
-      </li>
-    </ul>
   </div>
 </nav>

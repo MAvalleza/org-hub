@@ -1,4 +1,4 @@
-<nav class="main-nav px-2 navbar navbar-expand-md navbar-dark bg-maroon shadow-sm">
+<nav class="main-nav px-3 navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
       <a class="navbar-brand" href="{{ url('/') }}">
           {{ config('app.name', 'UP Org Hub') }}
       </a>
