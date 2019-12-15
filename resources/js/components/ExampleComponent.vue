@@ -1,23 +1,27 @@
-<template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+<template lang="pug">
+    div
+        a(class="btn btn-primary" @click="text = 'Hey'").text-white Button
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        span {{ text }}
+        
+        sub-component
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+import SubComponent from './SubComponent';
+import { VBtn } from 'vuetify';
+export default {
+    components: {
+        VBtn,
+        SubComponent
+    },
+    mounted() {
+        console.log('Component mounted.')
+    },
+    data () {
+        return {
+            text: 'No'
+        };
     }
+}
 </script>
