@@ -1,7 +1,7 @@
 <nav class="main-nav px-3 navbar sticky-top navbar-expand-md navbar-dark bg-primary shadow-sm">
     <a class="navbar-brand" href="{{ url('/') }}">
         <img width="7%" src="/storage/images/logo.png">
-        {{ config('app.name', 'UP Org Hub') }}
+        {{ config('app.name', 'The Org Hub') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>

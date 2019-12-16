@@ -12,7 +12,7 @@ class PagesController extends Controller
         if (!Auth::guest()) {
             return redirect('/dashboard')->with('success', 'User already logged in');
         } else {
-            $title = 'Welcome to UP Org Hub!';
+            $title = 'Welcome to The Org Hub!';
             // return view('pages.index', compact('title'));
             return view('pages.index')->with('title', $title);
         }
