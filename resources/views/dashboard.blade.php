@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome to your dashboard!
                 </div>
             </div>
             <example-component></example-component>
