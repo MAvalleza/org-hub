@@ -13,7 +13,7 @@ class Member extends Model
      // Timestamps
      public $timestamps = true;
  
-     public function user(){
+     public function organization(){
          return $this->belongsTo('App\User');
      }
 }
