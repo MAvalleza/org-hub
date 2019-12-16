@@ -154,6 +154,10 @@ class EventsController extends Controller
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         if($request->hasFile('cover_image')){
+            if($event->cover_image != 'noimage.jpg'){
+                // Delete image
+                Storage::delete('public/images/cover_images/'.$event->cover_image);
+            }
             $event->cover_image = $fileNameToStore;
         }
         $event->venue = $request->input('venue');
