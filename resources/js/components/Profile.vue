@@ -33,14 +33,11 @@ export default {
   methods: {
     async submit() {
       this.errors = {};
-      //this.$emit('update', this.organization.id, this.fields);
-
       try {
         await axios.post('/profile/update' + this.fields.id, {
           ...this.fields,
           _method: 'PUT'
         });
-        alert('Profile updated');
         window.location.href="/dashboard";
       } catch (e) {
         if (e.response.status === 422) {

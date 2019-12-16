@@ -1897,8 +1897,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              this.errors = {}; //this.$emit('update', this.organization.id, this.fields);
-
+              this.errors = {};
               _context.prev = 1;
               _context.next = 4;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/profile/update' + this.fields.id, _objectSpread({}, this.fields, {
@@ -1906,25 +1905,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               })));
 
             case 4:
-              alert('Profile updated');
               window.location.href = "/dashboard";
-              _context.next = 11;
+              _context.next = 10;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 7:
+              _context.prev = 7;
               _context.t0 = _context["catch"](1);
 
               if (_context.t0.response.status === 422) {
                 this.errors = _context.t0.response.data.errors || {};
               }
 
-            case 11:
+            case 10:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this, [[1, 8]]);
+      }, null, this, [[1, 7]]);
     }
   }
 });
