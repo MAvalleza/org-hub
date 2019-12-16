@@ -20,7 +20,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sidebar-item" href="#">
+        <a class="nav-link sidebar-item" href="/finance">
           <span data-feather="file"></span>
           Finance
         </a>
