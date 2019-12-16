@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Event;
 
 class EventsController extends Controller
@@ -126,6 +127,18 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        // Check for correct user
+        if(auth()->user()->id !==$event->org_id) {
+            return redirect('/events')->with('error', 'Unauthorized action');
+        }
+
+        if($event->cover_image != 'noimage.jpg'){
+            // Delete image
+            Storage::delete('public/images/cover_images/'.$event->cover_image);
+        }
+
+        $event->delete();
+        return redirect('/events')->with('success', 'Event Removed');
     }
 }
