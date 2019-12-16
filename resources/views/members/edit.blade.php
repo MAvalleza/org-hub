@@ -1,4 +1,4 @@
-@extends('members.layout')
+@extends('layouts.body')
 
 @section('card-header-content')
   <h2>Edit Member</h2>
