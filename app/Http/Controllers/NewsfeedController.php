@@ -23,7 +23,7 @@ class NewsfeedController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('created_at')->paginate(10);
+        $events = Event::orderBy('created_at')->paginate(5);
         return view('pages.newsfeed')->with('events', $events);
     }
 }
