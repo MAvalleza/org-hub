@@ -60,11 +60,11 @@ class ProfileController extends Controller
         $organization = User::find($id);
 
         // Check for correct user
-        // TODO: Configure properly
-        // if(auth()->user()->id !==$post->user_id) {
-        //     return redirect('/posts')->with('error', 'Unauthorized');
-        // }
-        return view('pages.profile')->with('organization', $organization);
+        if(auth()->user()->id !== $organization->id) {
+            return redirect('/dashboard')->with('error', 'Unauthorized access');
+        } else {
+            return view('pages.profile')->with('organization', $organization);
+        }
     }
 
     /**
