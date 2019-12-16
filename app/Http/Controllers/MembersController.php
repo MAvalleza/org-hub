@@ -24,8 +24,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $organization = User::find(auth()->user()->id);
-        $members = Member::orderBy('created_at')->paginate(10);
+        $members = Member::where('org_id', auth()->user()->id)->paginate(10);
         return view('members.index')->with('members', $members);
     }
 
@@ -36,7 +35,7 @@ class MembersController extends Controller
      */
     public function create()
     {
-        //
+        return view('members.create');
     }
 
     /**
@@ -47,7 +46,25 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'course' => 'required',
+            'year_level' => 'required',
+            'contact_no' => 'nullable',
+            'email' => 'nullable'
+        ]);
+
+        // Create Member
+        $member = new Member;
+        $member->name = $request->input('name');
+        $member->org_id = auth()->user()->id;
+        $member->course = $request->input('course');
+        $member->year_level = $request->input('year_level');
+        $member->contact_no = $request->input('contact_no');
+        $member->email = $request->input('email');
+        $member->save();
+
+        return redirect('/members')->with('success', 'Member added!');
     }
 
     /**
