@@ -47,5 +47,12 @@
         </a>
       </li>
     </ul>
+    <br>
+    <br>
+    <div class="container">
+      <span class="text-white">An LIS 162 Project by</span>
+      <br>
+      <span class="text-primary">Marc Almond Valleza</span>
+    </div>
   </div>
 </nav>
