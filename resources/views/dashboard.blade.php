@@ -17,9 +17,41 @@
                     @endif
 
                     Welcome to your dashboard!
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 text-center">
+                            <div class="card" style="width: 18 rem;">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top" src="/storage/images/org.png" alt="Card image cap">
+                                    <h4 class="card-title pt-3">Profile</h4>
+                                    <p class="card-text">Edit your organization profile details</p>
+                                    <a href="/profile/{{auth()->user()->id}}/edit" class="btn btn-primary">Go</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="card text-center" style="width: 18 rem;">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top" src="/storage/images/members.png" alt="Card image cap">
+                                    <h4 class="card-title pt-3">Members</h4>
+                                    <p class="card-text">Manage your organization's members</p>
+                                    <a href="/members" class="btn btn-primary">Go</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="card text-center" style="width: 18 rem;">
+                                <div class="card-body text-center">
+                                    <img class="card-img-top" src="/storage/images/events.png" alt="Card image cap">
+                                    <h4 class="card-title pt-3">Events</h4>
+                                    <p class="card-text">See your list of events</p>
+                                    <a href="/events" class="btn btn-primary">Go</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <example-component></example-component>
         </div>
     </div>
 </div>
