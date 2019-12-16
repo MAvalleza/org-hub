@@ -14,7 +14,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sidebar-item" href="#">
+        <a class="nav-link sidebar-item" href="/members">
           <span data-feather="file"></span>
           Organization Members
         </a>

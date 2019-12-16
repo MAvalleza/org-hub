@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'PagesController@index');
-//Route::get('/profile', 'PagesController@profile');
 Route::resource('profile', 'ProfileController');
+Route::resource('members', 'MembersController');
 
 Auth::routes();
 
