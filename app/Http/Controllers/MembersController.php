@@ -109,6 +109,13 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = Member::find($id);
+        // Check for correct user
+        if(auth()->user()->id !==$member->org_id) {
+            return redirect('/members')->with('error', 'This person is not a member of your organization');
+        }
+
+        $member->delete();
+        return redirect('/members')->with('success', 'Member removed');
     }
 }
