@@ -1,4 +1,5 @@
 <template lang="pug">
+  //- NOTE: Attempted to implement Vue components as an exercise
   form(@submit.prevent="submit")
     div.form-group
       label(for="name") Name
