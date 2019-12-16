@@ -14,6 +14,7 @@
 Route::get('/', 'PagesController@index');
 Route::resource('profile', 'ProfileController');
 Route::resource('members', 'MembersController');
+Route::resource('events', 'EventsController');
 
 Auth::routes();
 

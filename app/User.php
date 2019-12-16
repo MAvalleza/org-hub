@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function members() {
         return $this->hasMany('App\Member');
     }
+
+    public function events() {
+        return $this->hasMany('App\Event');
+    }
 }

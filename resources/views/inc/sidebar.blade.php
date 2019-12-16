@@ -37,13 +37,13 @@
       <li class="nav-item">
         <a class="nav-link sidebar-item" href="#">
           <span data-feather="file"></span>
-          Events
+          My Events
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link sidebar-item" href="#">
           <span data-feather="file"></span>
-          Following
+          Newsfeed
         </a>
       </li>
     </ul>
