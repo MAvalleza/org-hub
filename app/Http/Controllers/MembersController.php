@@ -86,7 +86,13 @@ class MembersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $member = Member::find($id);
+
+        // Check for correct user
+        if(auth()->user()->id !==$member->org_id) {
+            return redirect('/members')->with('error', 'This person is not a member of your organization');
+        }
+        return view('members.edit')->with('member', $member);
     }
 
     /**
@@ -98,7 +104,24 @@ class MembersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'course' => 'required',
+            'year_level' => 'required',
+            'contact_no' => 'nullable',
+            'email' => 'nullable'
+        ]);
+
+        // Update Member
+        $member = Member::find($id);
+        $member->name = $request->input('name');
+        $member->course = $request->input('course');
+        $member->year_level = $request->input('year_level');
+        $member->contact_no = $request->input('contact_no');
+        $member->email = $request->input('email');
+        $member->save();
+
+        return redirect('/members')->with('success', 'Member updated!');
     }
 
     /**
