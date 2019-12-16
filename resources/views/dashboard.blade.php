@@ -16,9 +16,10 @@
                         </div>
                     @endif
 
-                    Welcome to your dashboard!
+                    <h3>Welcome to your dashboard!</h3>
+                    </h4>What would you like to do today?</h4>
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center pt-4">
                         <div class="col-md-4 text-center">
                             <div class="card" style="width: 18 rem;">
                                 <div class="card-body text-center">
