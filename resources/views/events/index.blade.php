@@ -6,7 +6,7 @@
 @endsection
 
 @section('card-body-content')
-  @if(count($events) > 0)
+  @if(count($organization->events) > 0)
     <table class="table table-striped table-bordered">
       <thead class="thead-dark">
         <tr>
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($events as $event)
+        @foreach($organization->events as $event)
             <tr>
                 <td>{{$event->id}}</td>
                 <td>{{$event->title}}</td>
@@ -35,7 +35,7 @@
             </tr>
         @endforeach
       </tbody>
-      {{ $events->links()}}
+      {{-- {{ $events->links()}} --}}
     </table>
   @else
     <p>No events found</p>

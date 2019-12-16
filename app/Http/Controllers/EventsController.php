@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Event;
+use App\User;
 
 class EventsController extends Controller
 {
@@ -24,8 +25,9 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::where('org_id', auth()->user()->id)->paginate(10);
-        return view('events.index')->with('events', $events);
+        $organization = User::find(auth()->user()->id);
+        // $events = Event::where('org_id', auth()->user()->id)->paginate(10);
+        return view('events.index')->with('organization', $organization);
     }
 
     /**
