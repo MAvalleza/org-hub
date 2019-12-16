@@ -104,7 +104,13 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        // Check for correct user
+        if(auth()->user()->id !==$event->org_id) {
+            return redirect('/events')->with('error', 'Unauthorized action');
+        }
+        return view('events.edit')->with('event', $event);
     }
 
     /**
@@ -116,7 +122,43 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'venue' => 'required',
+            'occursAt' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
+        ]);
+        
+        // Handle file upload
+
+        if($request->hasFile('cover_image')) {
+            // Get file name with the extension
+            // getClientOriginalImage() - gets whole file name with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload image
+            $path = $request->file('cover_image')->storeAs('public/images/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        // Update Event
+        $event = Event::find($id);
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        if($request->hasFile('cover_image')){
+            $event->cover_image = $fileNameToStore;
+        }
+        $event->venue = $request->input('venue');
+        $event->occursAt = $request->input('occursAt');
+        $event->save();
+
+        return redirect('/events')->with('success', 'Event Updated!');
     }
 
     /**
