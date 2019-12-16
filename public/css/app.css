@@ -27,7 +27,6 @@
   --info: #6cb2eb;
   --warning: #ffed4a;
   --danger: #e3342f;
-  --maroon: #571300;
   --light: #f8f9fa;
   --dark: #343a40;
   --breakpoint-xs: 0;
@@ -581,10 +580,6 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.main-nav {
-  z-index: 999;
 }
 
 @media (min-width: 576px) {
@@ -5341,7 +5336,7 @@ input[type=button].btn-block {
 .card-img-top,
 .card-img-bottom {
   flex-shrink: 0;
-  width: 100%;
+  width: 50%;
 }
 
 .card-img,
@@ -7378,10 +7373,6 @@ button.bg-warning:focus {
 
 .bg-danger {
   background-color: #e3342f !important;
-}
-
-.bg-maroon {
-  background-color: #571300 !important
 }
 
 a.bg-danger:hover,

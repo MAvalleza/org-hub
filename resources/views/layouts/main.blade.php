@@ -10,6 +10,7 @@
         @else
           @include('inc.sidebar')
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-3">
+            @include('inc.messages')
             @yield('content')
           </main>
         @endguest

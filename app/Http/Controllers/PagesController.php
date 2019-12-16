@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
     public function index(){
-        $title = 'Welcome to UP Org Hub!';
-        // return view('pages.index', compact('title'));
-        return view('pages.index')->with('title', $title);
+
+        if (!Auth::guest()) {
+            return redirect('/dashboard')->with('success', 'User already logged in');
+        } else {
+            $title = 'Welcome to The Org Hub!';
+            // return view('pages.index', compact('title'));
+            return view('pages.index')->with('title', $title);
+        }
+    }
+
+    public function profile(){
+        return view('pages.profile');
     }
     // public function about(){
     //     $title = 'About Us';
