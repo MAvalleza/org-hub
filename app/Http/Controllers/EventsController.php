@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class EventsController extends Controller
 {
@@ -22,7 +23,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        
+        $events = Event::where('org_id', auth()->user()->id)->paginate(10);
+        return view('events.index')->with('events', $events);
     }
 
     /**
@@ -32,7 +34,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -43,7 +45,42 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'venue' => 'required',
+            'occursAt' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
+        ]);
+        
+        // Handle file upload
+
+        if($request->hasFile('cover_image')) {
+            // Get file name with the extension
+            // getClientOriginalImage() - gets whole file name with extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload image
+            $path = $request->file('cover_image')->storeAs('public/images/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        // Create Event
+        $event = new Event;
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->org_id = auth()->user()->id;
+        $event->cover_image = $fileNameToStore;
+        $event->venue = $request->input('venue');
+        $event->occursAt = $request->input('occursAt');
+        $event->save();
+
+        return redirect('/events')->with('success', 'Event Created');
     }
 
     /**

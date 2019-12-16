@@ -35,7 +35,7 @@
     </h6>
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link sidebar-item" href="#">
+        <a class="nav-link sidebar-item" href="/events">
           <span data-feather="file"></span>
           My Events
         </a>
