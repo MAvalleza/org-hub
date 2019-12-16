@@ -3,9 +3,6 @@
 @include('inc.navbar')
 <div class="container-fluid">
     <div class="row">
-      @include('inc.messages')
-    </div>
-    <div class="row">
         @guest
           <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-3">
             @yield('content')
@@ -13,6 +10,7 @@
         @else
           @include('inc.sidebar')
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-3">
+            @include('inc.messages')
             @yield('content')
           </main>
         @endguest
