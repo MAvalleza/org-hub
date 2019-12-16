@@ -14,6 +14,6 @@ class Member extends Model
      public $timestamps = true;
  
      public function organization(){
-         return $this->belongsTo('App\User');
+         return $this->belongsTo('App\User', 'org_id');
      }
 }
