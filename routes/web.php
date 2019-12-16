@@ -15,6 +15,7 @@ Route::get('/', 'PagesController@index');
 Route::resource('profile', 'ProfileController');
 Route::resource('members', 'MembersController');
 Route::resource('events', 'EventsController');
+Route::get('/newsfeed', 'NewsfeedController@index');
 
 Auth::routes();
 
